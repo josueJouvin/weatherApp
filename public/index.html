@@ -8,10 +8,20 @@
     <link rel="stylesheet" href="main.css" type="text/css">
 </head>
 <body>
+
     
-    <div class="bg-bold-blue md:grid md:grid-cols-desktop md:h-screen 2xl:grid-cols-desktopG">
+    <div id="messagePermise">
+        <div class="bg-bold-blue text-color-info-second flex justify-center items-center h-screen">
+            <div class="text-center py-10 px-5 bg-blue-weaterApp text-3xl leading-relaxed 2xl:px-10 2xl:text-5xl">
+                <p>Allow access to location or deny to write any location</p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="showHiddenMenu" class="hidden">
+    <div id="principalMenu" class="bg-bold-blue md:grid md:grid-cols-desktop md:h-screen 2xl:grid-cols-desktopG">
         <!--Menu Movil--> 
-        <div class="bg-blue-weaterApp h-screen hidden">
+        <div id="searchMenu" class="bg-blue-weaterApp h-screen hidden">
             <div class="container w-11/12 py-5 mx-auto">
                 <div class="flex justify-end pb-5">
                     <svg class="cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" style="fill: #E7E7EB;transform: ;msFilter:;"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg>
@@ -30,7 +40,7 @@
             </div>
         </div>
 
-        <header class="bg-blue-weaterApp">
+        <header id="principalinfoWeather" class="bg-blue-weaterApp hidden">
             <nav class="flex justify-between items-center px-4 py-5 md:pb-0">
                 <button class="px-3 py-2 bg-zinc-500 text-gray-50 shadow-md cursor-pointer md:text-lg">Search for places</button>
                 <button class="bg-zinc-500 rounded-full p-1.5 cursor-pointer md:p-2">
@@ -64,7 +74,7 @@
             </section>
         </header>
     
-        <main class="bg-bold-blue">
+        <main id="infoWeather" class="bg-bold-blue hidden">
             <section class="py-16 px-5 grid grid-cols-autoG content-center justify-items-center gap-6 md:gap-4 lg:grid-cols-autoG 2xl:grid-cols-autoC">
 
                 <div class="bg-blue-weaterApp py-3 px-2 text-color-info-second text-lg 2xl:text-2xl flex flex-col items-center justify-center">
@@ -138,6 +148,8 @@
 
         </main>
     </div>
+    </div>
     
+    <script src="app.js"></script>
 </body>
 </html>
