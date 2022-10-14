@@ -7,10 +7,10 @@
     <title>Document</title>
     <link rel="stylesheet" href="main.css" type="text/css">
 </head>
-<body>
+<body class="bg-bold-blue">
 
     
-    <div id="messagePermise">
+    <div id="messagePermise" class="hidden">
         <div class="bg-bold-blue text-color-info-second flex justify-center items-center h-screen">
             <div class="text-center py-10 px-5 bg-blue-weaterApp text-3xl leading-relaxed 2xl:px-10 2xl:text-5xl">
                 <p>Allow access to location or deny to write any location</p>
@@ -18,10 +18,10 @@
         </div>
     </div>
     
-    <div id="showHiddenMenu" class="hidden">
     <div id="principalMenu" class="bg-bold-blue md:grid md:grid-cols-desktop md:h-screen 2xl:grid-cols-desktopG">
+        <template id="showHiddenInfo">
         <!--Menu Movil--> 
-        <div id="searchMenu" class="bg-blue-weaterApp h-screen hidden">
+            <div id="searchMenu" class="bg-blue-weaterApp h-screen hidden">
             <div class="container w-11/12 py-5 mx-auto">
                 <div class="flex justify-end pb-5">
                     <svg class="cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" style="fill: #E7E7EB;transform: ;msFilter:;"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg>
@@ -38,118 +38,119 @@
                     <li class="text-color-li text-lg hover:py-4 hover:px-3 hover:border-2 hover:border-input cursor-pointer">Texas</li>
                 </ul>
             </div>
-        </div>
+            </div>
 
-        <header id="principalinfoWeather" class="bg-blue-weaterApp hidden">
-            <nav class="flex justify-between items-center px-4 py-5 md:pb-0">
-                <button class="px-3 py-2 bg-zinc-500 text-gray-50 shadow-md cursor-pointer md:text-lg">Search for places</button>
-                <button class="bg-zinc-500 rounded-full p-1.5 cursor-pointer md:p-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);transform: ;msFilter:;"><circle cx="12" cy="12" r="3"></circle><path d="M13 4.069V2h-2v2.069A8.01 8.01 0 0 0 4.069 11H2v2h2.069A8.008 8.008 0 0 0 11 19.931V22h2v-2.069A8.007 8.007 0 0 0 19.931 13H22v-2h-2.069A8.008 8.008 0 0 0 13 4.069zM12 18c-3.309 0-6-2.691-6-6s2.691-6 6-6 6 2.691 6 6-2.691 6-6 6z"></path></svg>
-                </button>
-            </nav>
+            <header id="principalinfoWeather" class="bg-blue-weaterApp">
+                <nav class="flex justify-between items-center px-4 py-5 md:pb-0">
+                    <button class="px-3 py-2 bg-zinc-500 text-gray-50 shadow-md cursor-pointer md:text-lg">Search for places</button>
+                    <button class="bg-zinc-500 rounded-full p-1.5 cursor-pointer md:p-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);transform: ;msFilter:;"><circle cx="12" cy="12" r="3"></circle><path d="M13 4.069V2h-2v2.069A8.01 8.01 0 0 0 4.069 11H2v2h2.069A8.008 8.008 0 0 0 11 19.931V22h2v-2.069A8.007 8.007 0 0 0 19.931 13H22v-2h-2.069A8.008 8.008 0 0 0 13 4.069zM12 18c-3.309 0-6-2.691-6-6s2.691-6 6-6 6 2.691 6 6-2.691 6-6 6z"></path></svg>
+                    </button>
+                </nav>
             
-            <section class="h-74 md:h-60 2xl:h-96 2xl:mt-6">
-                <div class="w-full flex items-center justify-center h-full bg-no-repeat bg-cover bg-center" style="background-image: url('/public/img/Cloud-background.png');">
-                    <img class="w-40 md:w-32 2xl:w-56" src="img/Shower.png" alt="">
-                </div> 
-            </section>
+                <section class="h-74 md:h-60 2xl:h-96 2xl:mt-6">
+                    <div id="weatherImageBackground" class="w-full flex items-center justify-center h-full bg-no-repeat bg-cover bg-center" style="background-image: url('/public/img/Cloud-background.png');">
+                        <img id="weatherImage" class="w-40 md:w-32 2xl:w-56" src="img/Shower.png" alt="">
+                    </div> 
+                </section>
     
-            <section>
-                <div class="flex flex-col justify-center items-center gap-4 pb-14 md:gap-8 md:pb-5 2xl:mt-8 2xl:gap-12">
-                    <span class="text-9xl text-color-info-second md:mt-0 md:text-8xl md:font-bold 2xl:text-9xl">
-                        15<span class="text-4xl text-color-info md:text-3xl 2xl:text-5xl">°C</span>
-                    </span>
-                    <span class="text-color-info text-5xl font-bold 2xl:text-6xl">
-                        Shower
-                    </span>
-                    <div class="flex gap-5 text-color-info text-xl 2xl:text-2xl">
-                        <p>Today: </p>
-                        <p>Fri, 5 Jun</p>
-                    </div>     
-                    <div class="flex items-center gap-1 text-color-info text-2xl font-bold 2xl:text-4xl">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" style="fill: rgba(136, 134, 157, 1);transform: ;msFilter:;"><path d="M12 2C7.589 2 4 5.589 4 9.995 3.971 16.44 11.696 21.784 12 22c0 0 8.029-5.56 8-12 0-4.411-3.589-8-8-8zm0 12c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"></path></svg>
-                        <span>Quito</span>
+                <section>
+                    <div class="flex flex-col justify-center items-center gap-4 pb-14 md:gap-8 md:pb-5 2xl:mt-8 2xl:gap-12">
+                        <span id="temperature" class="text-9xl text-color-info-second md:mt-0 md:text-8xl md:font-bold 2xl:text-9xl">
+                           15
+                        </span>
+                        <span id="climate" class="text-color-info text-5xl font-bold 2xl:text-6xl"></span>
+                        <div id="date" class="text-color-info text-xl 2xl:text-2xl">
+                            Fri, 5 Jun
+                        </div>     
+                        <div class="flex items-center gap-1 text-color-info text-2xl font-bold 2xl:text-4xl">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" style="fill: rgba(136, 134, 157, 1);transform: ;msFilter:;"><path d="M12 2C7.589 2 4 5.589 4 9.995 3.971 16.44 11.696 21.784 12 22c0 0 8.029-5.56 8-12 0-4.411-3.589-8-8-8zm0 12c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"></path></svg>
+                            <span id="city">Quito</span>
+                        </div>
                     </div>
-                </div>
-            </section>
-        </header>
+                </section>
+            </header>
     
-        <main id="infoWeather" class="bg-bold-blue hidden">
-            <section class="py-16 px-5 grid grid-cols-autoG content-center justify-items-center gap-6 md:gap-4 lg:grid-cols-autoG 2xl:grid-cols-autoC">
-
-                <div class="bg-blue-weaterApp py-3 px-2 text-color-info-second text-lg 2xl:text-2xl flex flex-col items-center justify-center">
-                    <p>Tomorrow</p>
-                    <img class="p-6 h-36 w-36 lg:h-40 lg:w-4h-40 2xl:h-44 2xl:w-44" src="img/sleetClear.png" alt="">
-                    <div class="flex gap-4 justify-center items-center">
-                        <p>16°C</p>
-                        <p class="text-color-info">11°c</p>
+            <main id="infoWeather" class="bg-bold-blue">
+             <section id="nextDays" class="py-16 px-5 grid grid-cols-autoG content-center justify-items-center gap-6 md:gap-4 lg:grid-cols-autoG 2xl:grid-cols-autoC">
+                <template id="nextDaysAuto">
+                    <div class="bg-blue-weaterApp py-3 px-2 text-color-info-second text-lg 2xl:text-2xl flex flex-col items-center justify-center">
+                        <p class="day">Tomorrow</p>
+                        <img class="p-6 h-36 w-36 lg:h-40 lg:w-4h-40 2xl:h-44 2xl:w-44" src="img/sleetClear.png" alt="">
+                        <div class="flex gap-4 justify-center items-center">
+                            <p class="tempMax">16°C</p>
+                            <p class="text-color-info tempMin">11°c</p>
+                        </div>
                     </div>
-                </div>
         
-                <div class="bg-blue-weaterApp text-center py-3 px-2 text-color-info-second text-lg 2xl:text-2xl flex flex-col items-center justify-center">
-                    <p>Sun, 7 Jun</p>
-                    <img class="p-6 h-36 w-36 lg:h-40 lg:w-4h-40 2xl:h-44 2xl:w-44" src="img/sleetClear.png" alt="">
-                    <div class="flex gap-4 justify-center items-center">
-                        <p>16°C</p>
-                        <p class="text-color-info">11°c</p>
+                    <div class="bg-blue-weaterApp text-center py-3 px-2 text-color-info-second text-lg 2xl:text-2xl flex flex-col items-center justify-center">
+                        <p class="day">Sun, 7 Jun</p>
+                        <img class="p-6 h-36 w-36 lg:h-40 lg:w-4h-40 2xl:h-44 2xl:w-44" src="img/sleetClear.png" alt="">
+                        <div class="flex gap-4 justify-center items-center">
+                            <p class="tempMax">16°C</p>
+                            <p class="text-color-info tempMin">11°c</p>
+                        </div>
                     </div>
-                </div>
         
-                <div class="bg-blue-weaterApp text-center py-3 px-2 text-color-info-second text-lg 2xl:text-2xl flex flex-col items-center justify-center">
-                    <p>Sun, 7 Jun</p>
-                    <img class="p-6 h-36 w-36 lg:h-40 lg:w-4h-40 2xl:h-44 2xl:w-44" src="img/ThunderstormClear.png" alt="">
-                    <div class="flex gap-4 justify-center items-center">
-                        <p>16°C</p>
-                        <p class="text-color-info">11°c</p>
+                    <div class="bg-blue-weaterApp text-center py-3 px-2 text-color-info-second text-lg 2xl:text-2xl flex flex-col items-center justify-center">
+                        <p class="day">Sun, 7 Jun</p>
+                        <img class="p-6 h-36 w-36 lg:h-40 lg:w-4h-40 2xl:h-44 2xl:w-44" src="img/ThunderstormClear.png" alt="">
+                        <div class="flex gap-4 justify-center items-center">
+                            <p class="tempMax">16°C</p>
+                            <p class="text-color-info tempMin">11°c</p>
+                        </div>
                     </div>
-                </div>
         
-                <div class="bg-blue-weaterApp text-center py-3 px-2 text-color-info-second text-lg 2xl:text-2xl flex flex-col items-center justify-center">
-                    <p>Sun, 7 Jun</p>
-                    <img class="p-6 h-36 w-36 lg:h-40 lg:w-4h-40 2xl:h-44 2xl:w-44" src="img/LightCloud.png" alt="">
-                    <div class="flex gap-4 justify-center items-center">
-                        <p>16°C</p>
-                        <p class="text-color-info">11°c</p>
+                    <div class="bg-blue-weaterApp text-center py-3 px-2 text-color-info-second text-lg 2xl:text-2xl flex flex-col items-center justify-center">
+                        <p class="day">Sun, 7 Jun</p>
+                        <img class="p-6 h-36 w-36 lg:h-40 lg:w-4h-40 2xl:h-44 2xl:w-44" src="img/LightCloud.png" alt="">
+                        <div class="flex gap-4 justify-center items-center">
+                            <p class="tempMax">16°C</p>
+                            <p class="text-color-info tempMin">11°c</p>
+                        </div>
                     </div>
-                </div>
         
-                <div class="bg-blue-weaterApp text-center py-3 px-2 text-color-info-second text-lg 2xl:text-2xl flex flex-col items-center justify-center">
-                    <p>Sun, 7 Jun</p>
-                    <img class="p-6 h-36 w-36 lg:h-40 lg:w-4h-40 2xl:h-44 2xl:w-44" src="img/LightRain.png" alt="">
-                    <div class="flex gap-4 justify-center items-center">
-                        <p>16°C</p>
-                        <p class="text-color-info">11°c</p>
+                    <div class="bg-blue-weaterApp text-center py-3 px-2 text-color-info-second text-lg 2xl:text-2xl flex flex-col items-center justify-center">
+                        <p class="day">Sun, 7 Jun</p>
+                        <img class="p-6 h-36 w-36 lg:h-40 lg:w-4h-40 2xl:h-44 2xl:w-44" src="img/LightRain.png" alt="">
+                        <div class="flex gap-4 justify-center items-center">
+                            <p class="tempMax">16°C</p>
+                            <p class="text-color-info tempMin">11°c</p>
+                        </div>
                     </div>
-                </div>
-            </section>    
+                </template>
+                </section>    
     
-            <section>
-                <h3 class="text-color-info-second text-2xl md:px-5 2xl:text-3xl 2xl:pl-10">Todays Hightlights</h3>
+             <section id="hightlights">
+                <template id="todayHightlights">
+                <h3 class="text-color-info-second text-2xl md:px-5 2xl:text-3xl 2xl:pl-10 pl-5">Today Hightlights</h3>
 
-                <div class="text-center grid grid-cols-autoC text-color-info-second gap-8 py-6 px-5 md:gap-5 md:pt-16 2xl:gap-7 2xl:px-10 2xl:grid-cols-autoCG">
-                    <div class="bg-blue-weaterApp flex flex-col gap-6 justify-between p-7 2xl:p-10">
-                        <p class="text-lg 2xl:text-2xl">Wind Status</p>
-                        <p class="text-5xl 2xl:text-6xl">7mph</p>
+                    <div class="text-center grid grid-cols-autoC text-color-info-second gap-8 py-6 px-5 md:gap-5 md:pt-16 2xl:gap-7 2xl:px-10 2xl:grid-cols-autoCG">
+                        <div class="bg-blue-weaterApp flex flex-col gap-6 justify-between p-7 2xl:p-10">
+                            <p class="text-lg 2xl:text-2xl">Wind Status</p>
+                            <p id="windSpeed" class="text-5xl 2xl:text-6xl">7mph</p>
+                        </div>
+                        <div class="bg-blue-weaterApp flex flex-col gap-6 justify-between p-7 2xl:p-10">
+                            <p class="text-lg 2xl:text-2xl">Humidity</p>
+                            <p id="humidity" class="text-5xl 2xl:text-6xl">84%</p>
+                        </div>
+                        <div class="bg-blue-weaterApp flex flex-col gap-6 justify-between p-7 2xl:p-10">
+                            <p class="text-lg 2xl:text-2xl">Visibility</p>
+                            <p id="visibility" class="text-5xl 2xl:text-6xl">84%</p>
+                        </div>
+                        <div class="bg-blue-weaterApp flex flex-col gap-6 justify-between p-7 2xl:p-10">
+                            <p class="text-lg 2xl:text-2xl">Air Pressure</p>
+                            <p id="airPressure" class="text-5xl 2xl:text-6xl">84%</p>
+                        </div>
                     </div>
-                    <div class="bg-blue-weaterApp flex flex-col gap-6 justify-between p-7 2xl:p-10">
-                        <p class="text-lg 2xl:text-2xl">Humidity</p>
-                        <p class="text-5xl 2xl:text-6xl">84%</p>
-                    </div>
-                    <div class="bg-blue-weaterApp flex flex-col gap-6 justify-between p-7 2xl:p-10">
-                        <p class="text-lg 2xl:text-2xl">Humidity</p>
-                        <p class="text-5xl 2xl:text-6xl">84%</p>
-                    </div>
-                    <div class="bg-blue-weaterApp flex flex-col gap-6 justify-between p-7 2xl:p-10">
-                        <p class="text-lg 2xl:text-2xl">Humidity</p>
-                        <p class="text-5xl 2xl:text-6xl">84%</p>
-                    </div>
-                </div>
-            </section>
+                </template>
+             </section>
 
-        </main>
+            </main>
+        </template>
     </div>
-    </div>
     
+
     <script src="app.js"></script>
 </body>
 </html>

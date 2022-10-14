@@ -627,10 +627,6 @@ video {
   height: 9rem;
 }
 
-.max-h-screen {
-  max-height: 100vh;
-}
-
 .w-11\/12 {
   width: 91.666667%;
 }
@@ -699,10 +695,6 @@ video {
   gap: 1rem;
 }
 
-.gap-5 {
-  gap: 1.25rem;
-}
-
 .gap-1 {
   gap: 0.25rem;
 }
@@ -757,11 +749,6 @@ video {
   background-color: rgb(113 113 122 / var(--tw-bg-opacity));
 }
 
-.bg-white {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
 .bg-cover {
   background-size: cover;
 }
@@ -790,8 +777,14 @@ video {
   padding: 1.75rem;
 }
 
-.p-10 {
-  padding: 2.5rem;
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 
 .py-5 {
@@ -812,11 +805,6 @@ video {
 .py-2\.5 {
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
-}
-
-.px-5 {
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
 }
 
 .py-2 {
@@ -844,11 +832,6 @@ video {
   padding-bottom: 1.5rem;
 }
 
-.py-10 {
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
-}
-
 .pb-5 {
   padding-bottom: 1.25rem;
 }
@@ -857,8 +840,17 @@ video {
   padding-bottom: 3.5rem;
 }
 
+.pl-5 {
+  padding-left: 1.25rem;
+}
+
 .text-center {
   text-align: center;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .text-lg {
@@ -876,11 +868,6 @@ video {
   line-height: 1;
 }
 
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-
 .text-5xl {
   font-size: 3rem;
   line-height: 1;
@@ -891,11 +878,6 @@ video {
   line-height: 1.75rem;
 }
 
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-}
-
 .font-bold {
   font-weight: 700;
 }
@@ -904,16 +886,9 @@ video {
   line-height: 1.625;
 }
 
-.leading-3 {
-  line-height: .75rem;
-}
-
-.leading-10 {
-  line-height: 2.5rem;
-}
-
-.leading-loose {
-  line-height: 2;
+.text-color-info-second {
+  --tw-text-opacity: 1;
+  color: rgb(231 231 235 / var(--tw-text-opacity));
 }
 
 .text-gray-50 {
@@ -922,11 +897,6 @@ video {
 }
 
 .text-color-li {
-  --tw-text-opacity: 1;
-  color: rgb(231 231 235 / var(--tw-text-opacity));
-}
-
-.text-color-info-second {
   --tw-text-opacity: 1;
   color: rgb(231 231 235 / var(--tw-text-opacity));
 }
@@ -1029,11 +999,6 @@ video {
     line-height: 1;
   }
 
-  .md\:text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
-  }
-
   .md\:font-bold {
     font-weight: 700;
   }
@@ -1107,13 +1072,13 @@ video {
     padding-left: 2.5rem;
   }
 
-  .\32xl\:text-9xl {
-    font-size: 8rem;
+  .\32xl\:text-5xl {
+    font-size: 3rem;
     line-height: 1;
   }
 
-  .\32xl\:text-5xl {
-    font-size: 3rem;
+  .\32xl\:text-9xl {
+    font-size: 8rem;
     line-height: 1;
   }
 
