@@ -1,27 +1,32 @@
-const messagePermise = document.querySelector('#messagePermise')
-const principalMenu = document.querySelector('#principalMenu')
+const messagePermise = document.querySelector('#messagePermise');
+const hiddenPrincipal = document.querySelector('#hidden')
+const principalMenu = document.querySelector('#principalMenu');
 const showHiddenInfo = document.querySelector('#showHiddenInfo').content;
-const searchMenu = document.querySelector('#searchMenu')
+const apiKey = 'f15cad192956337128fb4850f7a258b6';
 
 
-
-document.addEventListener('DOMContentLoaded', () =>{ 
+document.addEventListener('DOMContentLoaded', () =>{
     function success(pos){
         let cords = pos.coords
         const {latitude, longitude} = cords
         accessGranted(latitude,longitude)
-        messagePermise.classList.add('hidden')
+        messagePermise.remove()
+        hiddenPrincipal.classList.remove('hidden')
     }
 
     function error(err){
-        accessDenied()
+        const city = document.querySelector('#City')
+        city.addEventListener('submit', (e) =>{
+            e.preventDefault()
+            const btnCity = document.querySelector('#btnCity').value
+            searchCity(btnCity)
+        })
     }
 
     navigator.geolocation.getCurrentPosition(success,error);
 })
 
 const accessGranted = (latitude,longitude) =>{
-    const apiKey = 'f15cad192956337128fb4850f7a258b6';
     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`
     
     fetch(url)
@@ -38,17 +43,21 @@ const showHtmlInfoPrincipal = (data) =>{
     
     principalMenu.textContent = ''
     const clone = showHiddenInfo.cloneNode(true)
-    clone.querySelector('#weatherImageBackground').style.backgroundImage = bgImg(weather[0].main)
+    clone.querySelector('#weatherImageBackground').setAttribute('style',`${bgImg(weather[0].main)}`)
     clone.querySelector('#weatherImage').src = imgDependingWeather(weather[0].main) 
     clone.querySelector('#temperature').textContent = kelvinACentigrados(main.temp);
     clone.querySelector('#climate').textContent = weather[0].main
     clone.querySelector('#date').textContent = today
     clone.querySelector('#city').textContent = name  
+
+    const btnSearch = clone.querySelector('#searchButton')
     fragment.appendChild(clone)
     principalMenu.appendChild(fragment)
 
     showHtmlMaxMinTemp(data.main,clone)
     todayHightlights(data)
+
+    searchOtherCities(btnSearch)
 }
 
 const imgDependingWeather = (weather) =>{
@@ -67,7 +76,7 @@ const imgDependingWeather = (weather) =>{
 
 const bgImg = (weather) =>{
     if(weather === 'Clouds' || weather === 'Rain' || weather === 'Thunderstorm'){
-        return './img/Cloud-background.png'
+        return 'background-image: url(./img/Cloud-background.png);'
     }else{
         return ''
     }
@@ -123,10 +132,73 @@ const convertVisibility = (visibility) =>{
     return `${firstN}.${secondN}`
 }
 
-const accessDenied = () =>{
-    setTimeout(()=>{
-        messagePermise.classList.add('hidden')
-        showHiddenInfo.classList.remove('hidden')
-        searchMenu.classList.remove('hidden')
-    }, 4500);
+
+//MENU
+const searchOtherCities = (btnSearch) =>{
+    btnSearch.addEventListener('click', () =>{
+        const openSearchMenu = document.querySelector('#searchMenu');
+        const principalinfoWeather = document.querySelector('#principalinfoWeather');
+        openSearchMenu.classList.remove('hidden')
+        principalinfoWeather.classList.add('hidden')
+    })
+    closeSearchMenu()
 }
+
+const closeSearchMenu = () =>{
+    const btnCloseMenu = document.querySelector('#closeMenu')
+    btnCloseMenu.addEventListener('click', () =>{
+        const openSearchMenu = document.querySelector('#searchMenu');
+        const principalinfoWeather = document.querySelector('#principalinfoWeather');
+        openSearchMenu.classList.add('hidden')
+        principalinfoWeather.classList.remove('hidden')
+    })
+    searchCity()
+}
+
+
+const searchCity = () =>{
+    const regEx = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/;
+    const formCity = document.querySelector('#formCity')
+
+    formCity.addEventListener('submit',(e) =>{
+        e.preventDefault()
+        const inputCity = document.querySelector('#inputCity').value.toLowerCase();
+        if(!regEx.test(inputCity) || !inputCity.trim()){
+            return errorInputCity('Required field, numbers are not allowed')
+        }
+        
+        searchApiCity(inputCity.trimStart())
+    })
+}
+
+const searchApiCity = (city) =>{
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
+    fetch(url)
+        .then(response => response.json())
+        .then(data =>{
+            if (data.cod === '404') {
+                errorInputCity('City not found')
+                return;
+            }
+            showHtmlInfoPrincipal(data)
+        })
+        
+}
+
+const errorInputCity = (menssage) =>{
+    const messageError = document.querySelector('#messageError')
+    const alert = document.querySelector('.border-indigo-400');
+
+    if (!alert) {
+        const alert = document.createElement('div');
+
+        alert.classList.add('bg-indigo-600', 'border-indigo-400', 'text-gray-50', 'px-4', 'py-3', 'rounded', 'max-w-md', 'mx-auto', 'mt-6', 'text-center')
+        alert.textContent= menssage
+        messageError.appendChild(alert)
+
+        setTimeout(()=>{
+            alert.remove()
+        },3500)
+    }
+}
+

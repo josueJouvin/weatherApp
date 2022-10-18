@@ -8,44 +8,45 @@
     <link rel="stylesheet" href="main.css" type="text/css">
 </head>
 <body class="bg-bold-blue">
-
-    
-    <div id="messagePermise" class="hidden">
-        <div class="bg-bold-blue text-color-info-second flex justify-center items-center h-screen">
+    <!--Message permise or denni-->
+        <div id="messagePermise" class="bg-bold-blue text-color-info-second flex flex-col justify-center gap-6 items-center h-screen">
             <div class="text-center py-10 px-5 bg-blue-weaterApp text-3xl leading-relaxed 2xl:px-10 2xl:text-5xl">
                 <p>Allow access to location or deny to write any location</p>
             </div>
+            <form id="City" class="flex items-center">
+                <input id="cityInput" class="bg-transparent border-2 border-input py-3 px-2 text-gray-50 mr-2 w-56" type="text" name="input" placeholder="Search Location" >
+                <button id="btnCity" class="text-lg py-2.5 px-5 bg-indigo-600 text-gray-50 border-2 border-indigo-600" type="submit">Search</button>
+            </form>
         </div>
-    </div>
     
-    <div id="principalMenu" class="bg-bold-blue md:grid md:grid-cols-desktop md:h-screen 2xl:grid-cols-desktopG">
-        <template id="showHiddenInfo">
+    <div id="hidden" class="hidden">
+        <div id="principalMenu" class="bg-bold-blue md:grid md:grid-cols-desktop md:h-screen 2xl:grid-cols-desktopG"> 
+        <template id="showHiddenInfo">    
         <!--Menu Movil--> 
-            <div id="searchMenu" class="bg-blue-weaterApp h-screen hidden">
-            <div class="container w-11/12 py-5 mx-auto">
-                <div class="flex justify-end pb-5">
-                    <svg class="cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" style="fill: #E7E7EB;transform: ;msFilter:;"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg>
-                </div>
-                <form class="flex items-center justify-between">
-                    <input class="bg-transparent border-2 border-input py-3 px-2 text-gray-50 w-full mr-2"type="text" name="input" placeholder="Search Location" >
-                    <button class="text-lg py-2.5 px-5 bg-indigo-600 text-gray-50 border-2 border-indigo-600" type="submit">Search</button>
-                </form>       
-                <ul class="flex flex-col gap-10 my-10">
-                    <h3 class="text-color-li text-2xl">Search History:</h3>
-                    <li class="text-color-li text-lg hover:py-4 hover:px-3 hover:border-2 hover:border-input cursor-pointer">London</li>
-                    <li class="text-color-li text-lg hover:py-4 hover:px-3 hover:border-2 hover:border-input cursor-pointer">Barcelona</li>
-                    <li class="text-color-li text-lg hover:py-4 hover:px-3 hover:border-2 hover:border-input cursor-pointer">Los Angeles</li>
-                    <li class="text-color-li text-lg hover:py-4 hover:px-3 hover:border-2 hover:border-input cursor-pointer">Texas</li>
-                </ul>
-            </div>
+            <div id="searchMenu" class="bg-blue-weaterApp hidden">
+                    <div class="container w-11/12 py-5 mx-auto h-screen">
+                        <div class="flex justify-end pb-5">
+                            <svg id="closeMenu" class="cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" style="fill: #E7E7EB;transform: ;msFilter:;"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg>
+                        </div>
+                        <form id="formCity" class="flex items-center justify-between">
+                            <input id="inputCity" class="bg-transparent border-2 border-input py-3 px-2 text-gray-50 w-full mr-2"type="text" name="input" placeholder="Search Location" >
+                            <button id="btnSearchCity" class="text-lg py-2.5 px-5 bg-indigo-600 text-gray-50 border-2 border-indigo-600" type="submit">Search</button>
+                        </form>
+                        <div id="messageError">
+                        </div>    
+                        <ul class="flex flex-col gap-6 my-10">
+                            <h3 class="text-color-li text-2xl">Search History:</h3>
+                            <li class="text-color-li text-lg hover:py-4 hover:px-3 hover:border-2 hover:border-input cursor-pointer">London</li>
+                            <li class="text-color-li text-lg hover:py-4 hover:px-3 hover:border-2 hover:border-input cursor-pointer">Barcelona</li>
+                            <li class="text-color-li text-lg hover:py-4 hover:px-3 hover:border-2 hover:border-input cursor-pointer">Los Angeles</li>
+                            <li class="text-color-li text-lg hover:py-4 hover:px-3 hover:border-2 hover:border-input cursor-pointer">Texas</li>
+                        </ul>
+                    </div> 
             </div>
 
             <header id="principalinfoWeather" class="bg-blue-weaterApp">
-                <nav class="flex justify-between items-center px-4 py-5 md:pb-0">
-                    <button class="px-3 py-2 bg-zinc-500 text-gray-50 shadow-md cursor-pointer md:text-lg">Search for places</button>
-                    <button class="bg-zinc-500 rounded-full p-1.5 cursor-pointer md:p-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);transform: ;msFilter:;"><circle cx="12" cy="12" r="3"></circle><path d="M13 4.069V2h-2v2.069A8.01 8.01 0 0 0 4.069 11H2v2h2.069A8.008 8.008 0 0 0 11 19.931V22h2v-2.069A8.007 8.007 0 0 0 19.931 13H22v-2h-2.069A8.008 8.008 0 0 0 13 4.069zM12 18c-3.309 0-6-2.691-6-6s2.691-6 6-6 6 2.691 6 6-2.691 6-6 6z"></path></svg>
-                    </button>
+                <nav class="flex justify-center items-center px-4 py-5 md:pb-0">
+                    <button id="searchButton" class="px-3 py-2 bg-zinc-500 text-gray-50 shadow-md cursor-pointer md:text-lg">Search for places</button>
                 </nav>
             
                 <section class="h-74 md:h-60 2xl:h-96 2xl:mt-6">
@@ -57,15 +58,15 @@
                 <section>
                     <div class="flex flex-col justify-center items-center gap-4 pb-14 md:gap-8 md:pb-5 2xl:mt-8 2xl:gap-12">
                         <span id="temperature" class="text-9xl text-color-info-second md:mt-0 md:text-8xl md:font-bold 2xl:text-9xl">
-                           15
+                           
                         </span>
                         <span id="climate" class="text-color-info text-5xl font-bold 2xl:text-6xl"></span>
                         <div id="date" class="text-color-info text-xl 2xl:text-2xl">
-                            Fri, 5 Jun
+                            
                         </div>     
                         <div class="flex items-center gap-1 text-color-info text-2xl font-bold 2xl:text-4xl">
                             <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" style="fill: rgba(136, 134, 157, 1);transform: ;msFilter:;"><path d="M12 2C7.589 2 4 5.589 4 9.995 3.971 16.44 11.696 21.784 12 22c0 0 8.029-5.56 8-12 0-4.411-3.589-8-8-8zm0 12c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"></path></svg>
-                            <span id="city">Quito</span>
+                            <span id="city"></span>
                         </div>
                     </div>
                 </section>
@@ -126,19 +127,19 @@
                 <h3 class="text-color-info-second text-2xl md:px-5 2xl:text-3xl 2xl:pl-10 pl-5">Today Hightlights</h3>
 
                     <div class="text-center grid grid-cols-autoC text-color-info-second gap-8 py-6 px-5 md:gap-5 md:pt-16 2xl:gap-7 2xl:px-10 2xl:grid-cols-autoCG">
-                        <div class="bg-blue-weaterApp flex flex-col gap-6 justify-between p-7 2xl:p-10">
+                        <div class="bg-blue-weaterApp flex flex-col gap-4 justify-between p-7 2xl:p-10">
                             <p class="text-lg 2xl:text-2xl">Wind Status</p>
                             <p id="windSpeed" class="text-5xl 2xl:text-6xl">7mph</p>
                         </div>
-                        <div class="bg-blue-weaterApp flex flex-col gap-6 justify-between p-7 2xl:p-10">
+                        <div class="bg-blue-weaterApp flex flex-col gap-4 justify-between p-7 2xl:p-10">
                             <p class="text-lg 2xl:text-2xl">Humidity</p>
                             <p id="humidity" class="text-5xl 2xl:text-6xl">84%</p>
                         </div>
-                        <div class="bg-blue-weaterApp flex flex-col gap-6 justify-between p-7 2xl:p-10">
+                        <div class="bg-blue-weaterApp flex flex-col gap-4 justify-between p-7 2xl:p-10">
                             <p class="text-lg 2xl:text-2xl">Visibility</p>
                             <p id="visibility" class="text-5xl 2xl:text-6xl">84%</p>
                         </div>
-                        <div class="bg-blue-weaterApp flex flex-col gap-6 justify-between p-7 2xl:p-10">
+                        <div class="bg-blue-weaterApp flex flex-col gap-4 justify-between p-7 2xl:p-10">
                             <p class="text-lg 2xl:text-2xl">Air Pressure</p>
                             <p id="airPressure" class="text-5xl 2xl:text-6xl">84%</p>
                         </div>
@@ -148,6 +149,7 @@
 
             </main>
         </template>
+        </div>
     </div>
     
 
