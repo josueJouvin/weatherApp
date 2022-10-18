@@ -13,10 +13,12 @@
             <div class="text-center py-10 px-5 bg-blue-weaterApp text-3xl leading-relaxed 2xl:px-10 2xl:text-5xl">
                 <p>Allow access to location or deny to write any location</p>
             </div>
-            <form id="City" class="flex items-center">
-                <input id="cityInput" class="bg-transparent border-2 border-input py-3 px-2 text-gray-50 mr-2 w-56" type="text" name="input" placeholder="Search Location" >
-                <button id="btnCity" class="text-lg py-2.5 px-5 bg-indigo-600 text-gray-50 border-2 border-indigo-600" type="submit">Search</button>
+            <form id="formCity" class="flex items-center justify-between">
+                <input id="inputCity" class="bg-transparent border-2 border-input py-3 px-2 text-gray-50 w-full mr-2"type="text" name="input" placeholder="Search Location" >
+                <button id="btnSearchCity" class="text-lg py-2.5 px-5 bg-indigo-600 text-gray-50 border-2 border-indigo-600" type="submit">Search</button>
             </form>
+            <div id="messageError">
+            </div> 
         </div>
     
     <div id="hidden" class="hidden">

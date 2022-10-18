@@ -15,18 +15,7 @@ document.addEventListener('DOMContentLoaded', () =>{
     }
 
     function error(err){
-        const regEx = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/;
-        const city = document.querySelector('#City')
-        city.addEventListener('submit', (e) =>{
-            e.preventDefault()
-            const btnCity = document.querySelector('#cityInput').value.toLowerCase();
-                if(!regEx.test(btnCity) || !btnCity.trim()){
-                    return errorInputCity('Required field, numbers are not allowed')
-                }
-            searchApiCity(btnCity.trimStart())
-            messagePermise.classList.add('hidden')
-            hiddenPrincipal.classList.remove('hidden')
-        })
+        searchCity()
     }
 
     navigator.geolocation.getCurrentPosition(success,error);
@@ -75,13 +64,15 @@ const imgDependingWeather = (weather) =>{
         return './img/Thunderstorm.png'
    }else if(weather === 'Snow'){
         return './img/Snow.png'
+   }else if(weather === 'Drizzle'){
+        return './img/LightRain.png'
    }else{
         return './img/HeavyCloud.png'
    }
 }
 
 const bgImg = (weather) =>{
-    if(weather === 'Clouds' || weather === 'Rain' || weather === 'Thunderstorm'){
+    if(weather === 'Clouds' || weather === 'Rain' || weather === 'Thunderstorm'|| weather === 'Drizzle'){
         return 'background-image: url(./img/Cloud-background.png);'
     }else{
         return ''
@@ -187,6 +178,8 @@ const searchApiCity = (city) =>{
                 return;
             }
             showHtmlInfoPrincipal(data)
+            messagePermise.classList.add('hidden')
+            hiddenPrincipal.classList.remove('hidden')
         })
         
 }
