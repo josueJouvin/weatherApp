@@ -15,11 +15,17 @@ document.addEventListener('DOMContentLoaded', () =>{
     }
 
     function error(err){
+        const regEx = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/;
         const city = document.querySelector('#City')
         city.addEventListener('submit', (e) =>{
             e.preventDefault()
-            const btnCity = document.querySelector('#btnCity').value
-            searchCity(btnCity)
+            const btnCity = document.querySelector('#cityInput').value.toLowerCase();
+                if(!regEx.test(btnCity) || !btnCity.trim()){
+                    return errorInputCity('Required field, numbers are not allowed')
+                }
+            searchApiCity(btnCity.trimStart())
+            messagePermise.classList.add('hidden')
+            hiddenPrincipal.classList.remove('hidden')
         })
     }
 
@@ -54,7 +60,7 @@ const showHtmlInfoPrincipal = (data) =>{
     fragment.appendChild(clone)
     principalMenu.appendChild(fragment)
 
-    showHtmlMaxMinTemp(data.main,clone)
+    showHtmlMaxMinTemp(data.main)
     todayHightlights(data)
 
     searchOtherCities(btnSearch)
