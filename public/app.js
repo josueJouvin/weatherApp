@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () =>{
 
     function error(err){
         searchCity()
+
     }
 
     navigator.geolocation.getCurrentPosition(success,error);
@@ -31,7 +32,6 @@ const accessGranted = (latitude,longitude) =>{
 }
 
 const showHtmlInfoPrincipal = (data) =>{
-    console.log(data)
     const {main,weather,name} = data
     const today = new Date().toDateString()
     const fragment = document.createDocumentFragment()
@@ -162,10 +162,12 @@ const searchCity = () =>{
         const inputCity = document.querySelector('#inputCity').value.toLowerCase();
         if(!regEx.test(inputCity) || !inputCity.trim()){
             return errorInputCity('Required field, numbers are not allowed')
-        }
-        
+        }   
         searchApiCity(inputCity.trimStart())
+        messagePermise.remove()
+        hiddenPrincipal.classList.remove('hidden')
     })
+   
 }
 
 const searchApiCity = (city) =>{
@@ -200,4 +202,3 @@ const errorInputCity = (menssage) =>{
         },3500)
     }
 }
-
